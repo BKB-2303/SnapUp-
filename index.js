@@ -3,7 +3,15 @@ const app=express();
 const dotenv=require("dotenv");
 const cors=require("cors");
 const axios = require("axios"); 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://snapupnews.netlify.app', // Allow only this origin
+    methods: 'GET', // Allowed HTTP methods
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    optionsSuccessStatus: 204 // Some legacy browsers choke on 204
+};
+
+// Use CORS with the specified options
+app.use(cors(corsOptions));
 
 dotenv.config();
 const url = process.env.URL;

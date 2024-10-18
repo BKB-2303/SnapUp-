@@ -3,7 +3,11 @@ const app=express();
 const dotenv=require("dotenv");
 const cors=require("cors");
 const axios = require("axios"); 
-app.use(cors());
+app.use(cors({
+    origin: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  }));
 
 dotenv.config();
 const url = process.env.URL || 8080;

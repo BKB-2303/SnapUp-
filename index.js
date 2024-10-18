@@ -22,7 +22,6 @@ app.get("/api/news", async (req, res) => {
         if (!response.data || !response.data.articles) {
             return res.status(404).json({ error: "No articles found" });
         }
-        
 
         res.json(response.data); 
     
@@ -32,6 +31,8 @@ app.get("/api/news", async (req, res) => {
         res.status(500).json({ error: "Failed to fetch news articles" });
     }
 });
+
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running at ${process.env.PORT}`);
